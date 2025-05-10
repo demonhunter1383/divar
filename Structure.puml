@@ -1,0 +1,256 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "ir.ac.kntu.Admin",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_3106 { 
+   	label=ac
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1226391184 { 
+   	label=kntu
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   Ad1711954517[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Ad</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   category: Category [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   price: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   seller: Seller [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   status: Status [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Admin1711954517[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Admin</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   wallet: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ setWallet(wallet: int): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Buyer1711954517[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Buyer</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   email: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   height: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   input: Scanner [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   phoneNumber: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   salesAds: ArrayList&lt;Ad&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   savedAds: ArrayList&lt;Ad&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   wallet: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   width: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+MainAdmin1711954517[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MainAdmin</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ peikPanel(repository: Repository, buyer: Buyer, ad: Ad)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setWallet(wallet: int): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Peik1711954517[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Peik</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   available: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   height: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   type: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   wallet: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   width: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Repository1711954517[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Repository</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   admin: MainAdmin [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   adminList: ArrayList&lt;Admin&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   ads: ArrayList&lt;Ad&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   buyerList: ArrayList&lt;Buyer&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   map: boolean[][] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   newAds: ArrayList&lt;Ad&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   peikList: ArrayList&lt;Peik&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   sellerList: ArrayList&lt;Seller&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   userList: ArrayList&lt;User&gt; [0..*]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Seller1711954517[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Seller</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   availableAds: ArrayList&lt;Ad&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   reviews: ArrayList&lt;String&gt; [0..*]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+User1711954517[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)User</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   password: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   username: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+Ad1711954517 -> Seller1711954517[label="seller
+[0..1]"];
+Buyer1711954517 -> Ad1711954517[label="salesAds
+[0..*]"];
+Buyer1711954517 -> Ad1711954517[label="savedAds
+[0..*]"];
+Buyer1711954517 -> Seller1711954517[arrowhead=none, arrowtail=empty, dir=both];
+Repository1711954517 -> Ad1711954517[label="ads
+[0..*]"];
+Repository1711954517 -> Ad1711954517[label="newAds
+[0..*]"];
+Repository1711954517 -> Admin1711954517[label="adminList
+[0..*]"];
+Repository1711954517 -> Buyer1711954517[label="buyerList
+[0..*]"];
+Repository1711954517 -> MainAdmin1711954517[label="admin
+[0..1]"];
+Repository1711954517 -> Peik1711954517[label="peikList
+[0..*]"];
+Repository1711954517 -> Seller1711954517[label="sellerList
+[0..*]"];
+Repository1711954517 -> User1711954517[label="userList
+[0..*]"];
+Seller1711954517 -> Ad1711954517[label="availableAds
+[0..*]"];
+User1711954517 -> Admin1711954517[arrowhead=none, arrowtail=empty, dir=both];
+User1711954517 -> Buyer1711954517[arrowhead=none, arrowtail=empty, dir=both];
+User1711954517 -> MainAdmin1711954517[arrowhead=none, arrowtail=empty, dir=both];
+User1711954517 -> Peik1711954517[arrowhead=none, arrowtail=empty, dir=both];
+    
+}
+@enduml
